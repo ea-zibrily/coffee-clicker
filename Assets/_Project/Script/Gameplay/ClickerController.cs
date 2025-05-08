@@ -1,7 +1,9 @@
+using Coffee.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 namespace Coffee.Gameplay
 {
@@ -29,6 +31,7 @@ namespace Coffee.Gameplay
 
         [Header("Reference")] 
         [SerializeField] private ClickerManager clickerManager;
+        [SerializeField] private FloatingTextSpawner floatingSpawner;
         
         #region Methods
 
@@ -67,6 +70,7 @@ namespace Coffee.Gameplay
             if (!canClick) return;
             AnimateBounce();
             clickerManager.AddPoint();
+            floatingSpawner.SpawnFloatingText(clickerManager.IncrementPoint);
         }
         
         private void AnimateBounce()
