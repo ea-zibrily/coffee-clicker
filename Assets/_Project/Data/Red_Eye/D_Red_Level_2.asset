@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b755c6d0484ac1979d07089fecf84d, type: 3}
+  m_Name: D_Red_Level_2
+  m_EditorClassIdentifier: 
+  itemName: 2
+  itemEffect: Extra Point Gacha
+  itemCost: 450
+  itemDescription: Melakukan total klik 100x untuk mendapatkan 30 - 50  coffee.
+  pointRange: 1e00000032000000
+  clickCount: 100
+  coffeeSprite: {fileID: 0}
