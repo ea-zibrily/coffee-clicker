@@ -21,12 +21,15 @@ namespace Coffee.Gameplay
         private float _rotateAngle;
         private Vector3 _originalScale;
         
-        [Header("Reference")] 
+        [Header("UI")] 
         [SerializeField] private Image coffeeImageUI;
         
         private Button _button;
         private RectTransform _rect;
 
+        [Header("Reference")] 
+        [SerializeField] private ClickerManager clickerManager;
+        
         #region Methods
 
         // Unity Callbacks
@@ -63,6 +66,7 @@ namespace Coffee.Gameplay
         {
             if (!canClick) return;
             AnimateBounce();
+            clickerManager.AddPoint();
         }
         
         private void AnimateBounce()
