@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: D_Quest_Click_Overtime
   m_EditorClassIdentifier: 
   questName: Click Overtime
-  description: Klik coffee sebanyak 25x 5 detik
+  description: Klik coffee sebanyak 25x selama 5 detik
   coffeeReward: 50

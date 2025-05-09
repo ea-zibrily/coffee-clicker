@@ -1,5 +1,6 @@
 using Coffee.Data;
 using Coffee.Shop;
+using Coffee.Gameplay;
 
 namespace Coffee.Quest
 {
@@ -9,7 +10,8 @@ namespace Coffee.Quest
         private bool isGetItem;
         
         // Constructor
-        public BuyItemQuest(QuestData questData, ItemName itemName) : base(questData)
+        public BuyItemQuest(QuestData questData, ClickerManager clickerManager, ItemName itemName) 
+            : base(questData, clickerManager)
         {
             this.itemName = itemName;
         }

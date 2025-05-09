@@ -25,18 +25,18 @@ namespace Coffee.Quest
         [Header("UI")]
         [SerializeField] private TextMeshProUGUI questTextUI;
         
-        private void Start()
-        {
-            _quests = new List<Quest>
-            {
-                new ClickQuest(questDatas[0], clickTargets[0]),
-                new BuyManyItemQuest(questDatas[1], itemCountTarget),
-                new ClickTimeQuest(questDatas[2], clickTargets[1], clickDuration),
-                new BuyItemQuest(questDatas[3], itemTarget)
-            };
-            
-            GenerateQuest();
-        }
+        // private void Start()
+        // {
+        //     _quests = new List<Quest>
+        //     {
+        //         new ClickQuest(questDatas[0], clickTargets[0]),
+        //         new BuyManyItemQuest(questDatas[1], itemCountTarget),
+        //         new ClickOvertimeQuest(questDatas[2], clickTargets[1], clickDuration),
+        //         new BuyItemQuest(questDatas[3], itemTarget)
+        //     };
+        //     
+        //     GenerateQuest();
+        // }
         
         private void Update()
         {
@@ -64,7 +64,7 @@ namespace Coffee.Quest
                 case ClickQuest clickQuest:
                     clickQuest.OnClickCoffee();
                     break;
-                case ClickTimeQuest clickTimeQuest:
+                case ClickOvertimeQuest clickTimeQuest:
                     clickTimeQuest.OnClickCoffee();
                     break;
             }

@@ -7,8 +7,8 @@ namespace Coffee.Data
     {
         [Header("Stats")]
         [SerializeField] private string questName;
-        [SerializeField] private string description;
-        [SerializeField] private int coffeeReward;
+        [SerializeField] [TextArea(0, 2)] private string description;
+        [SerializeField] [Range(10, 100)] private int coffeeReward;
         
         // Getter
         public string QuestName => questName;

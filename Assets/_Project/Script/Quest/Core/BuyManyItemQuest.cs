@@ -1,5 +1,5 @@
 using Coffee.Data;
-using Coffee.Shop;
+using Coffee.Gameplay;
 
 namespace Coffee.Quest
 {
@@ -9,7 +9,8 @@ namespace Coffee.Quest
         private readonly int itemCount;
         
         // Constructor
-        public BuyManyItemQuest(QuestData questData, int itemCount) : base(questData)
+        public BuyManyItemQuest(QuestData questData, ClickerManager clickerManager, int itemCount) 
+            : base(questData, clickerManager)
         {
             this.itemCount = itemCount;
         }

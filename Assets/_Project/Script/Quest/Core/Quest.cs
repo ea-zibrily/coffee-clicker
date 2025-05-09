@@ -7,15 +7,16 @@ namespace Coffee.Quest
     public abstract class Quest
     {
         // General Component
-        protected readonly QuestData questData;
-        protected readonly ClickerManager clickerManager;
+        private readonly QuestData questData;
+        private readonly ClickerManager clickerManager;
         
-        public bool IsQuestCompleted { get; protected set; }
+        public bool IsQuestCompleted { get; private set; }
         
         // Constructor
-        protected Quest(QuestData questData)
+        protected Quest(QuestData questData, ClickerManager clickerManager)
         {
             this.questData = questData;
+            this.clickerManager = clickerManager;
         }
         
         // Methods

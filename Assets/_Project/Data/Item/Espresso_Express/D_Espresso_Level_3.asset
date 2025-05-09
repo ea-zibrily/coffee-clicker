@@ -17,4 +17,4 @@ MonoBehaviour:
   itemCost: 150
   itemDescription: Menambahkan +3 coffee setiap 0.8 detik.
   coffeePoint: 3
-  incrementTime: 0.8
+  incrementTime: 1

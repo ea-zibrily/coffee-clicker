@@ -1,5 +1,5 @@
-using System;
 using Coffee.Data;
+using Coffee.Gameplay;
 
 namespace Coffee.Quest
 {
@@ -9,11 +9,14 @@ namespace Coffee.Quest
         private int _clickCount;
         private readonly int clickTarget;
 
-        public ClickQuest(QuestData questData, int clickTarget) : base(questData)
+        // Constructor
+        public ClickQuest(QuestData questData, ClickerManager clickerManager, int clickTarget) 
+            : base(questData, clickerManager)
         {
             this.clickTarget = clickTarget;
         }
         
+        // Methods
         public override void StartQuest()
         {
             base.StartQuest();

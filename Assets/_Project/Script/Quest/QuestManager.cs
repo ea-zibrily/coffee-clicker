@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Coffee.Data;
+using Coffee.Gameplay;
 using Coffee.Shop;
 
 using Random = UnityEngine.Random;
@@ -24,15 +25,18 @@ namespace Coffee.Quest
         
         [Header("UI")]
         [SerializeField] private TextMeshProUGUI questTextUI;
+
+        [Header("Reference")] 
+        [SerializeField] private ClickerManager clickerManager;
         
         private void Start()
         {
             _quests = new List<Quest>
             {
-                new ClickQuest(questDatas[0], clickTargets[0]),
-                new BuyManyItemQuest(questDatas[1], itemCountTarget),
-                new ClickTimeQuest(questDatas[2], clickTargets[1], clickDuration),
-                new BuyItemQuest(questDatas[3], itemTarget)
+                new ClickQuest(questDatas[0], clickerManager, clickTargets[0]),
+                new BuyManyItemQuest(questDatas[1], clickerManager, itemCountTarget),
+                new ClickOvertimeQuest(questDatas[2], clickerManager, clickTargets[1], clickDuration),
+                new BuyItemQuest(questDatas[3], clickerManager, itemTarget)
             };
             
             GenerateQuest();
@@ -64,7 +68,7 @@ namespace Coffee.Quest
                 case ClickQuest clickQuest:
                     clickQuest.OnClickCoffee();
                     break;
-                case ClickTimeQuest clickTimeQuest:
+                case ClickOvertimeQuest clickTimeQuest:
                     clickTimeQuest.OnClickCoffee();
                     break;
             }

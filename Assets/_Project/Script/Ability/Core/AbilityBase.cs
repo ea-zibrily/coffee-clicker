@@ -24,7 +24,7 @@ namespace Coffee.Ability
         #region Methods
         
         // Unity Callbacks
-        private void Start()
+        private void OnEnable()
         {
             isAbilityApplied = true;
             itemDataList = ItemDatabase.Instance.GetItemDatas(abilityName);
