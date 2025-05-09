@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using Coffee.Data;
+using Coffee.Ability;
 using Coffee.Database;
 using Coffee.Gameplay;
 
@@ -35,6 +36,7 @@ namespace Coffee.Shop
         
         [Header("Reference")]
         [SerializeField] private ClickerManager clickerManager;
+        [SerializeField] private AbilityManager abilityManager;
         
         #endregion
         
@@ -67,7 +69,7 @@ namespace Coffee.Shop
                 EnableItemButton();
             }
         }
-
+        
         // Initialize
         private void InitStats()
         {
@@ -97,6 +99,7 @@ namespace Coffee.Shop
             
             _itemLevel++;
             itemHighlightUI.SetActive(false);
+            abilityManager.ApplyAbility(itemName);
             clickerManager.RemovePoint(CurrentData.ItemCost);
             
             CurrentData = _itemDataList[_itemLevel - 1];

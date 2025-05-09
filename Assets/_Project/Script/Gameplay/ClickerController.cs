@@ -1,15 +1,16 @@
-using Coffee.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
-using UnityEngine.Serialization;
+using Coffee.Pattern.Observer;
 
 namespace Coffee.Gameplay
 {
     [RequireComponent(typeof(Button))]
-    public class ClickerController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class ClickerController : Subject, IPointerEnterHandler, IPointerExitHandler
     {
+        #region Fields & Properties
+
         [Header("Settings")] 
         [SerializeField] private bool canClick;
         
@@ -28,10 +29,8 @@ namespace Coffee.Gameplay
         [SerializeField] private Button coffeeButtonUI;
         
         private RectTransform _rect;
-
-        [Header("Reference")] 
-        [SerializeField] private ClickerManager clickerManager;
-        [SerializeField] private FloatingTextSpawner floatingSpawner;
+        
+        #endregion
         
         #region Methods
 
@@ -74,8 +73,7 @@ namespace Coffee.Gameplay
         {
             if (!canClick) return;
             AnimateBounce();
-            clickerManager.AddPoint();
-            floatingSpawner.SpawnFloatingText(clickerManager.IncrementPoint);
+            NotifyObserver();
         }
         
         private void AnimateBounce()

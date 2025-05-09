@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using NaughtyAttributes;
-using Coffee.UI;
 
 namespace Coffee.Gameplay
 {
@@ -10,30 +9,22 @@ namespace Coffee.Gameplay
         #region Fields & Properties
 
         [Header("Stats")] 
-        [SerializeField] private int incrementPoint;
         [SerializeField] [ReadOnly] private int currentCoffee;
         
         private int _coffeeAllTime;
-        private int _coffeePerClick;
         private int _coffeePerSecond;
         
-        public int IncrementPoint
-        {
-            get => incrementPoint;
-            set => incrementPoint = value;
-        }
-        
-        public int CurrentCoffee
-        {
-            get => currentCoffee;
-            set => currentCoffee = value;
-        }
+        public int IncrementPoint { get; set; }
+        public int CurrentCoffee => currentCoffee;
         
         [Header("UI")] 
         [SerializeField] private TextMeshProUGUI coffeeTextUI;
         [SerializeField] private TextMeshProUGUI coffeeAllTimeTextUI;
         [SerializeField] private TextMeshProUGUI coffeePerClickTextUI;
         [SerializeField] private TextMeshProUGUI coffeePerSecondTextUI;
+        
+        [Header("Reference")]
+        [SerializeField] private ClickerController clickerController;
         
         #endregion
         
@@ -46,10 +37,24 @@ namespace Coffee.Gameplay
         }
         
         // Core
-        public void AddPoint()
+        public void AddPoint(int value = 1)
         {
-            currentCoffee += incrementPoint;
-            _coffeeAllTime += incrementPoint;
+            currentCoffee += value + IncrementPoint;
+            _coffeeAllTime += value + IncrementPoint;
+        }
+
+        public void AddPointDirectly(int value = 1)
+        {
+            currentCoffee += value;
+            _coffeeAllTime += value;
+        }
+        
+        public void AddPointPerSecond(int value)
+        {
+            currentCoffee += value + IncrementPoint;
+            
+            _coffeePerSecond += value;
+            _coffeeAllTime += value + IncrementPoint;
         }
         
         public void RemovePoint(int value)
@@ -62,7 +67,7 @@ namespace Coffee.Gameplay
         {
             coffeeTextUI.text = currentCoffee.ToString();
             coffeeAllTimeTextUI.text = _coffeeAllTime.ToString();
-            coffeePerClickTextUI.text = _coffeePerClick.ToString();
+            coffeePerClickTextUI.text = IncrementPoint.ToString();
             coffeePerSecondTextUI.text = _coffeePerSecond.ToString();
         }
         

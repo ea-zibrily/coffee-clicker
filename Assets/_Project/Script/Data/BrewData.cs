@@ -6,9 +6,9 @@ namespace Coffee.Data
     public class BrewData : ItemData
     {
         [Header("Stats")]
-        [SerializeField] private float incrementalPoint;
+        [SerializeField] private int incrementalPoint;
         
         // Getter
-        public float IncrementalPoint => incrementalPoint;
+        public int IncrementalPoint => incrementalPoint;
     }
 }
