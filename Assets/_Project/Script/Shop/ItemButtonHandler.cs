@@ -6,6 +6,7 @@ using Coffee.Data;
 using Coffee.Ability;
 using Coffee.Database;
 using Coffee.Gameplay;
+using Coffee.Quest;
 
 namespace Coffee.Shop
 {
@@ -37,6 +38,7 @@ namespace Coffee.Shop
         [Header("Reference")]
         [SerializeField] private ClickerManager clickerManager;
         [SerializeField] private AbilityManager abilityManager;
+        [SerializeField] private QuestManager questManager;
         
         #endregion
         
@@ -55,7 +57,7 @@ namespace Coffee.Shop
             
             itemButton.onClick.AddListener(OnClicked);
         }
-
+        
         private void Update()
         {
             if (!canAfford) return;
@@ -101,6 +103,7 @@ namespace Coffee.Shop
             itemHighlightUI.SetActive(false);
             abilityManager.ApplyAbility(itemName);
             clickerManager.RemovePoint(CurrentData.ItemCost);
+            questManager.OnAttractBuyItemQuest(itemName);
             
             CurrentData = _itemDataList[_itemLevel - 1];
             ModifyItemText(CurrentData);

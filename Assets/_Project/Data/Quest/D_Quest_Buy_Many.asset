@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bad684a95774157a34617fcaef9a91a, type: 3}
+  m_Name: D_Quest_Buy_Many
+  m_EditorClassIdentifier: 
+  questName: Buy Many Item
+  description: Beli 3 item di Shop
+  coffeeReward: 30

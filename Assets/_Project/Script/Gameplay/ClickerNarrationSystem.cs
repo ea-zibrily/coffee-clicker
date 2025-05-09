@@ -2,6 +2,7 @@ using UnityEngine;
 using Coffee.UI;
 using Coffee.Ability;
 using Coffee.Pattern.Observer;
+using Coffee.Quest;
 
 namespace Coffee.Gameplay
 {
@@ -13,6 +14,7 @@ namespace Coffee.Gameplay
         [Header("Reference")]
         [SerializeField] private ClickerManager clickerManager;
         [SerializeField] private FloatingTextSpawner floatingSpawner;
+        [SerializeField] private QuestManager questManager;
         [SerializeField] private PointGacha pointGachaAbility;
         
         private void OnEnable()
@@ -31,7 +33,8 @@ namespace Coffee.Gameplay
             
             clickerManager.AddPoint();
             floatingSpawner.SpawnFloatingText(increment);
-            pointGachaAbility.OnCoffeeClick();
+            questManager.OnAttractClickQuest();
+            pointGachaAbility.OnClickCoffee();
         }
     }
 }

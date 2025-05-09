@@ -31,7 +31,7 @@ namespace Coffee.Ability
             _currentClick = 0;
         }
         
-        public void OnCoffeeClick()
+        public void OnClickCoffee()
         {
             if (!isAbilityApplied) return;
             _currentClick++;

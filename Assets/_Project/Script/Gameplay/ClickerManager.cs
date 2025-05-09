@@ -23,9 +23,6 @@ namespace Coffee.Gameplay
         [SerializeField] private TextMeshProUGUI coffeePerClickTextUI;
         [SerializeField] private TextMeshProUGUI coffeePerSecondTextUI;
         
-        [Header("Reference")]
-        [SerializeField] private ClickerController clickerController;
-        
         #endregion
         
         #region Methods
