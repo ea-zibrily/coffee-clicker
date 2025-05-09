@@ -1,6 +1,5 @@
-using Coffee.Shop;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Coffee.Shop;
 
 namespace Coffee.Data
 {
@@ -17,5 +16,17 @@ namespace Coffee.Data
         public string ItemEffect => itemEffect;
         public int ItemCost => itemCost;
         public string ItemDescription => itemDescription;
+        
+        public string GetItemStringName()
+        {
+            return itemName switch
+            {
+                ItemName.Espresso_Express => "Espresso Express",
+                ItemName.Brew_Booster => "Brew Booster",
+                ItemName.Red_Eye => "Red Eye",
+                ItemName.Latte_Surge => "Latte Surge",
+                _ => "UNK"
+            };
+        }
     }
 }

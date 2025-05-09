@@ -25,8 +25,8 @@ namespace Coffee.Gameplay
         
         [Header("UI")] 
         [SerializeField] private Image coffeeImageUI;
+        [SerializeField] private Button coffeeButtonUI;
         
-        private Button _button;
         private RectTransform _rect;
 
         [Header("Reference")] 
@@ -38,20 +38,25 @@ namespace Coffee.Gameplay
         // Unity Callbacks
         private void Awake()
         {
-            _button = GetComponent<Button>();
             _rect = GetComponent<RectTransform>();
         }
         
         private void Start()
         {
             // Initialize
-            canClick = true;
-
-            _rotateAngle = -180f;
-            _originalScale = _button.transform.localScale;
-            _button.onClick.AddListener(OnClicked);
-            
+            InitClickers();
             AnimateRotate();
+            
+            coffeeButtonUI.onClick.AddListener(OnClicked);
+        }
+        
+        // Initialize
+        private void InitClickers()
+        {
+            canClick = true;
+            
+            _rotateAngle = -180f;
+            _originalScale = coffeeButtonUI.transform.localScale;
         }
         
         // Core
@@ -59,7 +64,7 @@ namespace Coffee.Gameplay
         {
             _rect.DOScale(highlightScale, bounceDuration).SetEase(easeType);
         }
-
+        
         public void OnPointerExit(PointerEventData eventData)
         {
             _rect.DOScale(_originalScale, bounceDuration).SetEase(easeType);

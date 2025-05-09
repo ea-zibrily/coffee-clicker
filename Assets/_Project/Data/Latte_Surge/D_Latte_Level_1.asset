@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d852d09692ad47f0b9a06716b8b940ca, type: 3}
   m_Name: D_Latte_Level_1
   m_EditorClassIdentifier: 
-  itemName: 0
+  itemName: 3
   itemEffect: Point Getter
   itemCost: 500
-  itemDescription: Mendapatkan 100 coffee secara langsung. Item ini hanya bisa dibeli
-    sekali.
+  itemDescription: Mendapatkan 100 coffee secara langsung.
   coffeePoint: 100
