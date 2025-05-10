@@ -18,4 +18,4 @@ MonoBehaviour:
   itemDescription: Melakukan total klik 50x untuk mendapatkan 20 - 30 coffee.
   pointRange: 140000001e000000
   clickCount: 50
-  coffeeSprite: {fileID: 0}
+  coffeeSprite: {fileID: 21300000, guid: 0b606249724ddf34696bd09544bd63c1, type: 3}

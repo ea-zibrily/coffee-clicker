@@ -72,7 +72,6 @@ namespace Coffee.Shop
             }
         }
         
-        // Initialize
         private void InitStats()
         {
             _itemDataList = ItemDatabase.Instance.GetItemDatas(itemName);
@@ -82,7 +81,6 @@ namespace Coffee.Shop
             CurrentData = _itemDataList[0];
         }
         
-        // Core
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (!itemButton.interactable) return;
@@ -95,6 +93,11 @@ namespace Coffee.Shop
             itemHighlightUI.SetActive(false);
         }
         
+        /// <summary>
+        /// Handle logic saat player membeli item.
+        /// Dalam method ini, terdapat beberapa komponen seperti abilityManager,
+        /// questManager, dan clickerManager.
+        /// </summary>
         private void OnClicked()
         {
             if (clickerManager.CurrentCoffee < CurrentData.ItemCost) return;
@@ -131,12 +134,18 @@ namespace Coffee.Shop
             ModifyItemText(CurrentData);
         }
         
+        /// <summary>
+        /// Handle logic saat item button diaktifkan.
+        /// </summary>
         private void EnableItemButton()
         {
             itemButton.interactable = true;
             itemGrayscaleUI.SetActive(false);
         }
         
+        /// <summary>
+        /// Handle logic saat item button dinon-aktifkan.
+        /// </summary>
         private void DisableItemButton()
         {
             itemButton.interactable = false;

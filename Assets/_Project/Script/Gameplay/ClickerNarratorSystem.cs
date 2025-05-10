@@ -34,10 +34,12 @@ namespace Coffee.Gameplay
             clicker.RemoveObserver(this);
         }
         
-        // Core
+        /// <summary>
+        /// Merespon notifikasi yang diterima dari subjek ClickerController.
+        /// </summary>
         public void OnNotify()
         {
-            var increment = clickerManager.IncrementPoint;
+            var increment = 1 + clickerManager.IncrementPoint;
             
             clickerManager.AddPoint();
             floatingSpawner.SpawnFloatingText(increment);

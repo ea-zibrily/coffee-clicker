@@ -23,13 +23,17 @@ namespace Coffee.UI
             }
         }
         
-        // Core
         public void SpawnFloatingText(int value)
         {
             var floatingText = GetText();
             floatingText.AnimateFloatingText(value);
         }
         
+        /// <summary>
+        /// Mendapatkan text yang tersedia.
+        /// Method ini menggunakan metode Pooling yang lebih sederhana. Tiap FloatingText
+        /// sebelumnya akan dimasukkan secara manual dalam scene.
+        /// </summary>
         private FloatingText GetText()
         {
             for (var i = 0; i < floatingTexts.Count; i++)

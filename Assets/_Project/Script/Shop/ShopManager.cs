@@ -26,6 +26,11 @@ namespace Coffee.Shop
             }
         }
         
+        /// <summary>
+        /// Melakukan pengecekan awal item dalam Shop.
+        /// Jika jumlah point sudah mencukupi, maka item akan diaktifkan.
+        /// Dilakukan untuk mengurangi looping tiap item button.
+        /// </summary>
         private void Update()
         {
             if (_currentIndex >= itemHandlers.Length) return;

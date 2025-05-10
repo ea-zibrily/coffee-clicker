@@ -9,6 +9,9 @@ namespace Coffee.Ability
         [Header("Abilities")]
         [SerializeField] private AbilityBase[] clickerAbilities;
 
+        #region Methods
+
+        // Unity Callbacks
         private void Start()
         {
             foreach (var ability in clickerAbilities)
@@ -17,6 +20,11 @@ namespace Coffee.Ability
             }
         }
 
+        /// <summary>
+        /// Mengaktifkan ability berdasarkan nama ability.
+        /// Sebelum mengaktifkan, dilakukan validasi apakah ability tersebut ada atau tidak.
+        /// </summary>
+        /// <param name="abilityName">target nama ability yang diinginkan</param>
         public void ApplyAbility(ItemName abilityName)
         {
             var ability = GetAbilityByName(abilityName);
@@ -35,5 +43,7 @@ namespace Coffee.Ability
             var ability = Array.Find(clickerAbilities, ability => ability.AbilityName == abilityName);
             return ability;
         }
+
+        #endregion
     }
 }

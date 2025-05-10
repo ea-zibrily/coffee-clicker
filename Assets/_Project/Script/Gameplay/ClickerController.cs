@@ -42,14 +42,12 @@ namespace Coffee.Gameplay
         
         private void Start()
         {
-            // Initialize
             InitClickers();
             AnimateRotate();
             
             coffeeButtonUI.onClick.AddListener(OnClicked);
         }
         
-        // Initialize
         private void InitClickers()
         {
             canClick = true;
@@ -58,7 +56,6 @@ namespace Coffee.Gameplay
             _originalScale = coffeeButtonUI.transform.localScale;
         }
         
-        // Core
         public void OnPointerEnter(PointerEventData eventData)
         {
             _rect.DOScale(highlightScale, bounceDuration).SetEase(easeType);
@@ -68,7 +65,11 @@ namespace Coffee.Gameplay
         {
             _rect.DOScale(_originalScale, bounceDuration).SetEase(easeType);
         }
-        
+
+        /// <summary>
+        /// Handle logic untuk clicker.
+        /// Saat ter-trigger, method akan menjalankan animasi bounce dan mengirim notifikasi ke observer.
+        /// </summary>
         private void OnClicked()
         {
             if (!canClick) return;

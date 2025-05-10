@@ -33,19 +33,30 @@ namespace Coffee.Gameplay
             ModifyPointText();
         }
         
-        // Core
-        public void AddPoint(int value = 1)
+        /// <summary>
+        /// Menambahkan point saat object coffee di-klik.
+        /// </summary>
+        /// <param name="value"></param>
+        public void AddPoint()
         {
-            currentCoffee += value + IncrementPoint;
-            _coffeeAllTime += value + IncrementPoint;
+            currentCoffee += 1 + IncrementPoint;
+            _coffeeAllTime += 1 + IncrementPoint;
         }
 
-        public void AddPointDirectly(int value = 1)
+        /// <summary>
+        /// Menambahkan point dengan jumlah tertentu secara langsung.
+        /// </summary>
+        /// <param name="value">berisi point yang akan ditambah</param>
+        public void AddPointDirectly(int value)
         {
             currentCoffee += value;
             _coffeeAllTime += value;
         }
         
+        /// <summary>
+        /// Menambahkan point saat ability autoclick dihidupkan.
+        /// </summary>
+        /// <param name="value">point yang akan ditambah</param>
         public void AddPointPerSecond(int value)
         {
             currentCoffee += value + IncrementPoint;
@@ -54,6 +65,10 @@ namespace Coffee.Gameplay
             _coffeeAllTime += value + IncrementPoint;
         }
         
+        /// <summary>
+        /// Mengurangi point saat player akan membeli item.
+        /// </summary>
+        /// <param name="value">point yang akan ditambah</param>
         public void RemovePoint(int value)
         {
             if (currentCoffee < value) return;

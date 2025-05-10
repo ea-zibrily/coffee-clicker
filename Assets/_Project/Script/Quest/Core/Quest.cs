@@ -19,9 +19,19 @@ namespace Coffee.Quest
             this.clickerManager = clickerManager;
         }
         
-        // Methods
+        /// <summary>
+        /// Mengeksekusi kondisi saat quest dimulai.
+        /// </summary>
         public virtual void StartQuest() { IsQuestCompleted = false; }
+        
+        /// <summary>
+        /// Melakukan update progressi quest.
+        /// </summary>
         public abstract void UpdateQuest();
+        
+        /// <summary>
+        /// Mengeksekusi kondisi saat quest selesai.
+        /// </summary>
         protected virtual void EndQuest(bool isSuccess)
         {
             IsQuestCompleted = true;

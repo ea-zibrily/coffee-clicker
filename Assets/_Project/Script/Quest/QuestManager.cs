@@ -57,7 +57,6 @@ namespace Coffee.Quest
             }
         }
         
-        // Initialize
         private void InitQuests()
         {
             _quests = new List<Quest>
@@ -69,7 +68,10 @@ namespace Coffee.Quest
             };
         }
         
-        // Core
+        /// <summary>
+        /// Melakukan generate quest baru. Tiap generate, jenis quest yang muncul akan di-random,
+        /// sehingga dapat memunculkan jenis quest yang berbeda.
+        /// </summary>
         public void GenerateQuest()
         {
             var randomIndex = Random.Range(0, _quests.Count);
@@ -80,6 +82,9 @@ namespace Coffee.Quest
             questTimer.ResetTimer();
         }
         
+        /// <summary>
+        /// Trigger progress quest yang berhubungan dengan clicker.
+        /// </summary>
         public void OnAttractClickQuest()
         {
             switch (_currentQuest)
@@ -93,6 +98,9 @@ namespace Coffee.Quest
             }
         }
         
+        /// <summary>
+        /// Trigger progress quest yang item/shop.
+        /// </summary>
         public void OnAttractBuyItemQuest(ItemName target)
         {
             switch (_currentQuest)

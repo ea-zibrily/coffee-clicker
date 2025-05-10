@@ -36,7 +36,11 @@ namespace Coffee.Ability
             RunAbility();
         }
         
-        // Core
+        /// <summary>
+        /// Mengaktifkan ability dari tiap jenis item.
+        /// Method ini akan di-override oleh child class, yang disesuaikan
+        /// dengan logic tiap ability.
+        /// </summary>
         public abstract void AddAbility();
         protected virtual void RunAbility() { }
         

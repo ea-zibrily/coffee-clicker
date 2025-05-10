@@ -47,7 +47,9 @@ namespace Coffee.UI
             canvasGroup.DOFade(1f, 0f);
         }
         
-        // Core
+        /// <summary>
+        /// Mengeksekusi animasi floating text ketika player melakukan klik.
+        /// </summary>
         public void AnimateFloatingText(int value)
         {
             floatingTextUI.text = value.ToString();

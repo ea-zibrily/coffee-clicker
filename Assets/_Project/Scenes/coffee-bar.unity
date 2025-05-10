@@ -586,6 +586,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemButton_1
       objectReference: {fileID: 0}
+    - target: {fileID: 2643891468395363805, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643891468395363805, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643891468395363805, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643891468395363805, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643891468395363805, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643891468395363805, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380410040932532601, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380410040932532601, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380410040932532601, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380410040932532601, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380410040932532601, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8300050460490484523, guid: b3ff9ceb0c6a7a747bb50ef295919c6a, type: 3}
       propertyPath: questManager
       value: 
@@ -4713,10 +4757,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1127101112}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1662227862
 MonoBehaviour:

@@ -20,24 +20,10 @@ namespace Coffee.Database
         [SerializeField] private ItemContainer[] itemContainers;
         
         // Methods
-        public ItemData GetItemData(ItemName itemName, int level)
-        {
-            var datas = FindItemDatas(itemName);
-            if (datas == null)
-            {
-                Debug.LogWarning($"item data for '{itemName}' not found!");
-                return null;
-            }
-            
-            if (level < 0 || level >= datas.Length)
-            {
-                Debug.LogWarning($"requested level {level} is out of range for item '{itemName}'!");
-                return null;
-            }
-            
-            return datas[level];
-        }
-        
+        /// <summary>
+        /// Memanggil array data item berdasarkan nama item.
+        /// </summary>
+        /// <param name="itemName">target nama item yang diinginkan</param>
         public ItemData[] GetItemDatas(ItemName itemName)
         {
             var datas = FindItemDatas(itemName);
@@ -49,6 +35,12 @@ namespace Coffee.Database
             return datas;
         }
         
+        /// <summary>
+        /// Mencari array data item berdasarkan nama item.
+        /// Dikarenakan ItemContainer merupakan struct, maka dilakukan secara manual
+        /// menggunakan loop-foreach.
+        /// </summary>
+        /// <param name="itemName">target nama item yang diinginkan</param>
         private ItemData[] FindItemDatas(ItemName itemName)
         {
             foreach (var container in itemContainers)
