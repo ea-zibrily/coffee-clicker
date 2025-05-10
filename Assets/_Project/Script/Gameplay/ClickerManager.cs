@@ -63,9 +63,10 @@ namespace Coffee.Gameplay
         private void ModifyPointText()
         {
             coffeeTextUI.text = currentCoffee.ToString();
-            coffeeAllTimeTextUI.text = _coffeeAllTime.ToString();
-            coffeePerClickTextUI.text = IncrementPoint.ToString();
-            coffeePerSecondTextUI.text = _coffeePerSecond.ToString();
+            
+            coffeeAllTimeTextUI.text = "Coffee All Time: " + _coffeeAllTime;
+            coffeePerClickTextUI.text = "Coffee Per Click: " + (1 + IncrementPoint);
+            coffeePerSecondTextUI.text = "Coffee Per Click: " + _coffeePerSecond;
         }
         
         #endregion

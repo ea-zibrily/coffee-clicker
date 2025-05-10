@@ -8,6 +8,8 @@ namespace Coffee.Gameplay
 {
     public class ClickerNarratorSystem : MonoBehaviour, IObserver
     {
+        #region Fields
+
         [Header("Subject")]
         [SerializeField] private Subject clicker;
         
@@ -16,7 +18,12 @@ namespace Coffee.Gameplay
         [SerializeField] private FloatingTextSpawner floatingSpawner;
         [SerializeField] private QuestManager questManager;
         [SerializeField] private PointGacha pointGachaAbility;
-        
+
+        #endregion
+
+        #region Methods
+
+        // Unity Callbacks
         private void OnEnable()
         {
             clicker.AddObserver(this);
@@ -27,6 +34,7 @@ namespace Coffee.Gameplay
             clicker.RemoveObserver(this);
         }
         
+        // Core
         public void OnNotify()
         {
             var increment = clickerManager.IncrementPoint;
@@ -36,5 +44,7 @@ namespace Coffee.Gameplay
             questManager.OnAttractClickQuest();
             pointGachaAbility.OnClickCoffee();
         }
+        
+        #endregion
     }
 }

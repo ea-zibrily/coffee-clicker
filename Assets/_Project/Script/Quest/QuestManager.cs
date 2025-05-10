@@ -12,6 +12,8 @@ namespace Coffee.Quest
 {
     public class QuestManager : MonoBehaviour
     {
+        #region Fields & Properties
+
         [Header("Stats")]
         [SerializeField] private QuestData[] questDatas;
         
@@ -32,6 +34,11 @@ namespace Coffee.Quest
         [SerializeField] private ClickerManager clickerManager;
         [SerializeField] private QuestTimer questTimer;
         
+        #endregion
+
+        #region Methods
+
+        // Unity Callbacks
         private void Start()
         {
             InitQuests();
@@ -62,6 +69,7 @@ namespace Coffee.Quest
             };
         }
         
+        // Core
         public void GenerateQuest()
         {
             var randomIndex = Random.Range(0, _quests.Count);
@@ -97,5 +105,7 @@ namespace Coffee.Quest
                     break;
             }
         }
+        
+        #endregion
     }
 }

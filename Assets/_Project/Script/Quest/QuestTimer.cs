@@ -5,6 +5,8 @@ namespace Coffee.Quest
 {
     public class QuestTimer : MonoBehaviour
     {
+        #region Fields
+
         [Header("Stats")]
         [SerializeField] private bool isTimerActive;
         [SerializeField] private float refreshTime;
@@ -15,6 +17,10 @@ namespace Coffee.Quest
         [Header("Reference")]
         [SerializeField] private QuestManager questManager;
         
+        #endregion
+
+        #region Methods
+        
         // Unity Callbacks
         private void Start()
         { 
@@ -23,11 +29,18 @@ namespace Coffee.Quest
         
         private void Update()
         {
+            if (!isTimerActive) return;
             HandleTimer();
             HandleTimerText();
         }
         
         // Core
+        public void ResetTimer()
+        {
+            _elapsedTime = refreshTime;
+            isTimerActive = true;
+        }
+        
         private void HandleTimer()
         {
             _elapsedTime -= Time.deltaTime;
@@ -46,9 +59,6 @@ namespace Coffee.Quest
             timerTextUI.text = $"{minutes:00}:{seconds:00}";
         }
         
-        public void ResetTimer()
-        {
-            _elapsedTime = refreshTime;
-        }
+        #endregion
     }
 }
