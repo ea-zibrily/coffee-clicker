@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using Coffee.Data;
 using Coffee.Gameplay;
@@ -11,11 +12,11 @@ namespace Coffee.Quest
 {
     public class QuestManager : MonoBehaviour
     {
-        [Header("General")]
+        [Header("Stats")]
         [SerializeField] private QuestData[] questDatas;
         
+        private Quest _currentQuest;
         private List<Quest> _quests = new();
-        public Quest CurrentQuest { get; private set; }
         
         [Header("Parameter")]
         [SerializeField] private int[] clickTargets;
@@ -24,12 +25,33 @@ namespace Coffee.Quest
         [SerializeField] private ItemName itemTarget;
         
         [Header("UI")]
-        [SerializeField] private TextMeshProUGUI questTextUI;
-
+        [SerializeField] private Button refreshButtonUI;
+        [SerializeField] private TextMeshProUGUI descriptionTextUI;
+        
         [Header("Reference")] 
         [SerializeField] private ClickerManager clickerManager;
+        [SerializeField] private QuestTimer questTimer;
         
         private void Start()
+        {
+            InitQuests();
+            GenerateQuest();
+            refreshButtonUI.onClick.AddListener(GenerateQuest);
+        }
+        
+        private void Update()
+        {
+            if (_currentQuest == null) return;
+            
+            _currentQuest.UpdateQuest();
+            if (_currentQuest.IsQuestCompleted)
+            {
+                GenerateQuest();
+            }
+        }
+        
+        // Initialize
+        private void InitQuests()
         {
             _quests = new List<Quest>
             {
@@ -38,32 +60,21 @@ namespace Coffee.Quest
                 new ClickOvertimeQuest(questDatas[2], clickerManager, clickTargets[1], clickDuration),
                 new BuyItemQuest(questDatas[3], clickerManager, itemTarget)
             };
-            
-            GenerateQuest();
         }
         
-        private void Update()
-        {
-            if (CurrentQuest == null) return;
-            CurrentQuest.UpdateQuest();
-            if (CurrentQuest.IsQuestCompleted)
-            {
-                GenerateQuest();
-            }
-        }
-        
-        private void GenerateQuest()
+        public void GenerateQuest()
         {
             var randomIndex = Random.Range(0, _quests.Count);
             
-            questTextUI.text = questDatas[randomIndex].Description;
-            CurrentQuest = _quests[randomIndex];
-            CurrentQuest.StartQuest();
+            descriptionTextUI.text = questDatas[randomIndex].Description;
+            _currentQuest = _quests[randomIndex];
+            _currentQuest.StartQuest();
+            questTimer.ResetTimer();
         }
         
         public void OnAttractClickQuest()
         {
-            switch (CurrentQuest)
+            switch (_currentQuest)
             {
                 case ClickQuest clickQuest:
                     clickQuest.OnClickCoffee();
@@ -76,7 +87,7 @@ namespace Coffee.Quest
         
         public void OnAttractBuyItemQuest(ItemName target)
         {
-            switch (CurrentQuest)
+            switch (_currentQuest)
             {
                 case BuyItemQuest buyItemQuest:
                     buyItemQuest.OnBuyItem(target);

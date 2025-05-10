@@ -10,7 +10,7 @@ namespace Coffee.Gameplay
     public class ClickerController : Subject, IPointerEnterHandler, IPointerExitHandler
     {
         #region Fields & Properties
-
+        
         [Header("Settings")] 
         [SerializeField] private bool canClick;
         

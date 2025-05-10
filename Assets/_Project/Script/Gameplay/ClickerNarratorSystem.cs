@@ -1,12 +1,12 @@
 using UnityEngine;
 using Coffee.UI;
+using Coffee.Quest;
 using Coffee.Ability;
 using Coffee.Pattern.Observer;
-using Coffee.Quest;
 
 namespace Coffee.Gameplay
 {
-    public class ClickerNarrationSystem : MonoBehaviour, IObserver
+    public class ClickerNarratorSystem : MonoBehaviour, IObserver
     {
         [Header("Subject")]
         [SerializeField] private Subject clicker;
